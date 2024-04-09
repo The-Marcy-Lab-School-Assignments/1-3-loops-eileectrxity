@@ -37,8 +37,14 @@ const countdown5to0 = () => {
 
 countdown5to0(); //5 4 3 2 1 0
 
-const loopUpToNum = () => {
+//Question 5: a for loop that starts on 0, and logs up to, but not including, a given num argument; increment each number by 1. check the test for how this function should behave if given 0 or a negative number
+const loopUpToNum = (num) => {
+  for (let i = 0; i < num; i++) { //would not run loop if num is 0 or -1 because i starts at 0 and to run the loop, i has to be less than an exclusive given num (0 < -1 --> is false and 0 < 0 --> also false)
+    console.log(i);
+  };
 };
+
+loopUpToNum(5); // 0 1 2 3 4
 
 const fizzbuzz = () => {
 };
