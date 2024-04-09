@@ -46,8 +46,24 @@ const loopUpToNum = (num) => {
 
 loopUpToNum(5); // 0 1 2 3 4
 
+/*Question 10: Ok, for real this time! It's fizzbuzz! function should run from 1 to 100 (inclusive of both) with each loop logging:
+  if the number is divisible by 3, log "fizz"
+  if the number is divisible by 5, log "buzz"
+  if the number is divisible by 3 and 5, log "fizzbuzz"
+  if the number is not divisible by either, just log the number */
 const fizzbuzz = () => {
+  for (let i = 1; i <= 100; i++) { //starting index at 1, increment up by 1 iterating up to an inclusive 100
+    if ( i  % 3 === 0 && i % 5 === 0) { //most specific condition first
+      console.log('fizzbuzz');
+    } else if (i % 5 === 0) {
+      console.log('buzz');
+    } else if (i % 3 === 0) {
+      console.log('fizz');
+    } else console.log(i);
+  };
 };
+
+fizzbuzz();
 
 module.exports = {
   loop0UpTo10,
