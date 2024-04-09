@@ -15,14 +15,28 @@ const whileToFor = () => {
 
 whileToFor(); // 0 1 2 3 4
 
+//Question 7: we've got some workable but clunky logic to avoid printing some numbers. maintain the exact same functionality, but do it with a continue statement in a guard clause
+// //original function
+// const continueGuardClause = () => {
+//   for (let i = 1; i < 5; i++) {
+//     if (!(i === 2) && !(i === 3)) { //same thing as if (i !== 2 && i !==3)
+//       console.log("Sure glad this isn't 2 or 3");
+//       console.log(i);
+//     }
+//   }
+// };
+//refactored adding a continue statement in the guard clause
 const continueGuardClause = () => {
   for (let i = 1; i < 5; i++) {
-    if (!(i === 2) && !(i === 3)) {
-      console.log("Sure glad this isn't 2 or 3");
-      console.log(i);
-    }
-  }
+    if (!(i === 2) && !(i === 3)) { //the guard clause: when both of these conditions being false, is true, do this {..}, if not, skip
+      console.log("Sure glad this isn't 2 or 3"); //prints whenever i is not 2 or 3
+      console.log(i); //logs the current numbered position at it's indice
+      continue; //when the if statement runs, skips current iteration once
+    };
+  };
 };
+
+continueGuardClause(); // Sure glad this isn't 2 or 3, 1, Sure glad this isn't 2 or 3, 4
 
 module.exports = {
   whileToFor,
