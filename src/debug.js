@@ -18,15 +18,32 @@ const brokenLoop = (start, end) => {
 
 console.log(brokenLoop(2, 10)); // '2345678910'
 
+/*Queston 9: original function- we have a nested for loop situation that's trying to compile a string. however, instead of returning:
+"00-01-02-03-04-05-06-07-08-09-10-11-12-13-14-15-16-17-18-19"
+it's returning: "00-11-22-33-44-55-66-77-88-99-00-11-22-33-44-55-66-77-88-99"
+there's a problem with our child loop, can you fix it? */
+// const brokenNested = () => {
+//   let result = ''; //initializing an empty string for storing result in
+//   for (let i = 0; i < 2; i++) { //starting at 0, current position, i, will increment up by 1 for loop iterating a total of two times
+//     for (let i = 0; i < 10; i++) { //starting at 0, increment up by 1 nine times, with nested loop no longer running after the 10th time as the stopping condition will be met
+//       result += `-${i}${i}`; //{nested loop's i}{nested loop's i again}
+//     }
+//   }
+//   return result.slice(1); //if this were result.slice(0), when logged, result would start printing as '-00-...' while result.slice(1) starts as '00-...' instead
+// };
+
+//debugged function returning a string of two separate indexes side by side as they iterate through a parent for loop and a nested for loop
 const brokenNested = () => {
   let result = '';
-  for (let i = 0; i < 2; i++) {
-    for (let i = 0; i < 10; i++) {
-      result += `-${i}${i}`;
+  for (let i = 0; i < 2; i++) { //running the nested loop below a total of two separate times
+    for (let j = 0; j < 10; j++) { //changed positional index variable to j instead of i in order to clearly denote which indice to print
+      result += `-${i}${j}`; //{parent loop's i}{nested loop's j}; adding the indices to the result string
     }
   }
-  return result.slice(1);
+  return result.slice(1); //starting string from index 1, skips the very first dash in the result string
 };
+
+console.log(brokenNested()); // '00-01-02-03-04-05-06-07-08-09-10-11-12-13-14-15-16-17-18-19'
 
 module.exports = {
   brokenLoop,
