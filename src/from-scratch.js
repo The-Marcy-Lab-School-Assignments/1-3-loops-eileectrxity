@@ -28,8 +28,14 @@ const loopEvenNumbersUpTo10 = () => {
 
 loopEvenNumbersUpTo10(); //0 2 4 6 8
 
+//Question 4: a for loop that starts on 5, and logs each number down to, and including, 0; decrement each number by 1
 const countdown5to0 = () => {
+  for (let i = 5; i >= 0; i--) { //starting index at 5, increment down by 1 until current position i is equal to 0
+    console.log(i);
+  };
 };
+
+countdown5to0(); //5 4 3 2 1 0
 
 const loopUpToNum = () => {
 };
